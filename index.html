@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>More Advanced Page</title>
+
+  <style>
+    body {
+      background-color: #2b2b2b;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    .box {
+      background: black;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      width: 70%;
+    }
+
+    img {
+      width: 150px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #111;
+      border-top: 2px solid #444;
+    }
+
+.glow-btn {
+  Background: black;
+  Color: white;
+  Padding: 15px 30px;
+  Border: 2px solid white;
+  Border-radius: 10px;
+  Font-size: 18px;
+  Cursor: pointer;
+  Margin-top: 30px;
+
+  /* Glow effect */
+  Box-shadow: 0 0 10px white, 0 0 20px white;
+
+  Transition: 0.3s;
+}
+
+.glow-btn:hover {
+  Box-shadow: 0 0 20px white, 0 0 40px white;
+  Transform: scale(1.1);
+}
+
+img {
+    width: 120px;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px white, 0 0 20px white;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- TITLE -->
+  <h1>More Advanced Page</h1>
+  <p onclick="toggleStyle()" style="cursor:pointer;">Switch to Basic View</p>
+
+  <!-- IMAGE / LOGO -->
+  <img src="logo.png">
+
+  <!-- SECTION 1 -->
+  <h2>Basic to Advanced</h2>
+  <div class="box">
+    <p>
+      A basic website usually contains simple text and layout with very little interaction.
+      It might only use basic HTML elements without much styling or functionality.
+    </p>
+    <p>
+      A more advanced website includes structured sections, styling with CSS, and interactive
+      features using JavaScript. It feels more alive and engaging to the user.
+    </p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2>My Journey</h2>
+  <div class="box">
+    <p>
+      I started learning HTML to build the structure of websites. Then I added CSS to style
+      and improve the appearance of my pages.
+    </p>
+    <p>
+      Now I am learning JavaScript to make my websites interactive and more dynamic. I am
+      continuing to improve by building projects and experimenting with new ideas.
+    </p>
+  </div>
+
+<button onclick="runJS()" class="glow-btn">Click Me</button>
+
+<p id="jsText"></p>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Email: gamesbymi26@email.com</p>
+    <p>This website is part of my journey to learn coding and improve my skills.</p>
+  </footer>
+<script> 
+function runJS() {
+  document.getElementById("jsText").innerText = "This is the JavaScript! 😎";
+}
+
+let basic = false;
+
+function toggleStyle() {
+    basic = !basic;
+
+    const boxes = document.querySelectorAll(".box");
+    const button = document.querySelector(".glow-btn");
+
+    if (basic) {
+    document.body.style.backgroundColor = "white";
+    document.body.style.color = "black";
+    
+    boxes.forEach(box => {
+      box.style.background = "none"
+      box.style.border = "1px solid black";
+    });
+  
+    if (button) {
+      button.style.boxShadow = "none";
+    }
+
+    document.querySelector("p[onclick]").innerText = "Switch to Styled view";
+ 
+   } else {
+       location.reload();
+  }
+}
+
+</script>
+</body>
+</html>
