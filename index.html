@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The more Advanced Page</title>
-
+  <title>Mi Dev Handbook</title>
   <style>
+
+    /* BASE / BASIC STYLES */
     body {
-       background: #3a3a3a; /* BASIC */
-       color: white;
-       transition: all 0.5s ease;
+      background: #ffffff;
+      color: #000000;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      transition: all 0.5s ease;
+      margin: 0;
+      padding: 20px;
     }
 
-    body.advanced {
-       background: #1f1f1f; /* ADVANCED (darker) */
-    }
-    
     h1 {
       font-size: 48px;
       font-weight: bold;
@@ -26,131 +27,204 @@
       margin-top: 40px;
     }
 
-    .box {
-      background: black;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 15px;
-      width: 70%;
-    }
-
-    img {
-      width: 150px;
-      margin-top: 20px;
-      border-radius: 10px;
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 10px auto;
     }
 
     footer {
       margin-top: 40px;
       padding: 20px;
-      background: #111;
-      border-top: 2px solid #444;
     }
 
-.glow-btn {
-  Background: black;
-  Color: white;
-  Padding: 15px 30px;
-  Border: 2px solid white;
-  Border-radius: 10px;
-  Font-size: 18px;
-  Cursor: pointer;
-  Margin-top: 30px;
-
-  /* Glow effect */
-  Box-shadow: 0 0 10px white, 0 0 20px white;
-
-  Transition: 0.3s;
-}
-
-.glow-btn:hover {
-  Box-shadow: 0 0 20px white, 0 0 40px white;
-  Transform: scale(1.1);
-}
-
-img {
-    width: 120px;
-    margin-top: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px white, 0 0 20px white;
-}
-
-    .toggle-text {
-      backgrround: none;
-      border: none;
-      color: white;
-      cursor: pointer;
+    /* TOGGLE BUTTON - always visible */
+    .toggle-btn {
+      background: none;
+      border: 2px solid black;
+      color: black;
+      padding: 10px 20px;
       font-size: 16px;
-      text-decoration: underline;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+      transition: all 0.3s ease;
     }
 
-#logo {
-  position: relative;
-  transition: transform 0.5s ease;
-}
+    /* ELEMENTS HIDDEN ON BASIC VIEW */
+    .advanced-only {
+      display: none;
+    }
 
-#switchBtn {
-  position: relative;
-  transition: transform 0.5s ease;
-}
+    /* CLICK ME BUTTON - hidden on basic */
+    .glow-btn {
+      display: none;
+    }
+
+    /* ── ADVANCED STYLES ── */
+    body.advanced {
+      background: #1f1f1f;
+      color: white;
+    }
+
+    body.advanced .toggle-btn {
+      border: 2px solid white;
+      color: white;
+      box-shadow: 0 0 10px white, 0 0 20px white;
+    }
+
+    body.advanced .toggle-btn:hover {
+      box-shadow: 0 0 20px white, 0 0 40px white;
+      transform: scale(1.05);
+    }
+
+    body.advanced .box {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 15px;
+      padding: 20px;
+      width: 70%;
+      margin: 20px auto;
+    }
+
+    body.advanced .advanced-only {
+      display: block;
+    }
+
+    body.advanced .glow-btn {
+      display: inline-block;
+      background: black;
+      color: white;
+      padding: 15px 30px;
+      border: 2px solid white;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 30px;
+      box-shadow: 0 0 10px white, 0 0 20px white;
+      transition: 0.3s;
+    }
+
+    body.advanced .glow-btn:hover {
+      box-shadow: 0 0 20px white, 0 0 40px white;
+      transform: scale(1.1);
+    }
+
+    body.advanced img {
+      box-shadow: 0 0 10px white, 0 0 20px white;
+    }
+
+    /* SWAP TRANSITIONS */
+    #logo {
+      position: relative;
+      transition: transform 0.5s ease;
+      width: 120px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+
+    #switchBtn {
+      position: relative;
+      transition: transform 0.5s ease;
+    }
 
   </style>
-
 </head>
-
 <body>
 
   <!-- TITLE -->
-  <h1>Mi Dev Handbook the more Advanced Page</h1>
-  <button id="switchBtn" onclick="toggleStyle()" style="cursor:pointer;">  Switch to Basic View:) </button>
+  <h1>Mi Dev Handbook</h1>
 
-  <!-- IMAGE / LOGO -->
-  <img id="logo" src="logo.png">
+  <!-- SWITCH BUTTON -->
+  <button id="switchBtn" class="toggle-btn" onclick="toggleView()">Switch to Advanced View</button>
+
+  <!-- LOGO - advanced only -->
+  <div class="advanced-only">
+    <img id="logo" src="logo.png" alt="Mi Dev Handbook Logo">
+  </div>
 
   <!-- SECTION 1 -->
   <h2>Basic to Advanced</h2>
-  <div class="box">
-    <p>
-      A basic website usually contains simple text and layout with very little interaction.
-      It might only use basic HTML elements without much styling or functionality.
-    </p>
-    <p>
-      A more advanced website includes structured sections, styling with CSS, and interactive
-      features using JavaScript. It feels more alive and engaging to the user.
-    </p>
+
+  <!-- BASIC TEXT -->
+  <div id="basicText1">
+    <p>A basic website usually contains simple text and layout with very little interaction.
+    It might only use basic HTML elements without much styling or functionality.</p>
+    <p>A more advanced website includes structured sections, styling with CSS, and interactive
+    features using JavaScript. It feels more alive and engaging to the user.</p>
+  </div>
+
+  <!-- ADVANCED BOX -->
+  <div class="box advanced-only">
+    <p>A basic website usually contains simple text and layout with very little interaction.
+    It might only use basic HTML elements without much styling or functionality.</p>
+    <p>A more advanced website includes structured sections, styling with CSS, and interactive
+    features using JavaScript. It feels more alive and engaging to the user.</p>
   </div>
 
   <!-- SECTION 2 -->
   <h2>My Journey</h2>
-  <div class="box">
-    <p>
-      I started learning HTML to build the structure of websites. Then I added CSS to style
-      and improve the appearance of my pages.
-    </p>
-    <p>
-      Now I am learning JavaScript to make my websites interactive and more dynamic. I am
-      continuing to improve by building projects and experimenting with new ideas.
-    </p>
+
+  <!-- BASIC TEXT -->
+  <div id="basicText2">
+    <p>I started learning HTML to build the structure of websites. Then I added CSS to style
+    and improve the appearance of my pages.</p>
+    <p>Now I am learning JavaScript to make my websites interactive and more dynamic. I am
+    continuing to improve by building projects and experimenting with new ideas.</p>
   </div>
 
-<button onclick="runJS()" class="glow-btn">Click Me</button>
+  <!-- ADVANCED BOX -->
+  <div class="box advanced-only">
+    <p>I started learning HTML to build the structure of websites. Then I added CSS to style
+    and improve the appearance of my pages.</p>
+    <p>Now I am learning JavaScript to make my websites interactive and more dynamic. I am
+    continuing to improve by building projects and experimenting with new ideas.</p>
+  </div>
 
-<p id="jsText"></p>
+  <!-- CLICK ME BUTTON - advanced only -->
+  <button onclick="runJS()" class="glow-btn">Click Me</button>
+  <p id="jsText"></p>
 
   <!-- FOOTER -->
   <footer>
     <p>Email: gamesbymi26@email.com</p>
     <p>This website is part of my journey to learn coding and improve my skills.</p>
   </footer>
-<script> 
-function runJS() {
-  document.getElementById("jsText").innerText = "This is the JavaScript! 😎";
-}
 
-function toggleStyle() {
-    document.body.classList.toggle("advanced");
-}
+  <script>
+    let isAdvanced = false;
+    let swapped = false;
 
-</script>
+    function toggleView() {
+      isAdvanced = !isAdvanced;
+      let btn = document.getElementById('switchBtn');
+      let logo = document.getElementById('logo');
+
+      document.body.classList.toggle('advanced');
+
+      // Hide basic text, show advanced boxes
+      document.getElementById('basicText1').style.display = isAdvanced ? 'none' : 'block';
+      document.getElementById('basicText2').style.display = isAdvanced ? 'none' : 'block';
+
+      // Update button text
+      btn.innerText = isAdvanced ? 'Switch to Basic View' : 'Switch to Advanced View';
+
+      // Swap button and logo positions
+      if (isAdvanced) {
+        btn.style.transform = 'translateY(80px)';
+        logo.style.transform = 'translateY(-80px)';
+      } else {
+        btn.style.transform = 'translateY(0)';
+        logo.style.transform = 'translateY(0)';
+        document.getElementById('jsText').innerText = '';
+      }
+    }
+
+    function runJS() {
+      document.getElementById("jsText").innerText = "This is the JavaScript! 😎";
+    }
+  </script>
+
 </body>
 </html>
