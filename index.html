@@ -5,14 +5,15 @@
 
   <style>
     body {
-  background: #3a3a3a; /* BASIC */
-  color: white;
-  transition: all 0.5s ease;
-}
+       background: #3a3a3a; /* BASIC */
+       color: white;
+       transition: all 0.5s ease;
+    }
 
-body.advanced {
-  background: #1f1f1f; /* ADVANCED (darker) */
-}
+    body.advanced {
+       background: #1f1f1f; /* ADVANCED (darker) */
+    }
+    
     h1 {
       font-size: 48px;
       font-weight: bold;
@@ -74,7 +75,7 @@ img {
     box-shadow: 0 0 10px white, 0 0 20px white;
 }
 
-    toggle-text {
+    .toggle-text {
       backgrround: none;
       border: none;
       color: white;
@@ -101,7 +102,7 @@ img {
 
   <!-- TITLE -->
   <h1>Mi Dev Handbook the more Advanced Page</h1>
-  <button id="switchBtn" onclick="swapElements()" onclick="toggleStyle()" style="cursor:pointer;">  Switch to Basic View:) </button>
+  <button id="switchBtn" onclick="toggleStyle()" style="cursor:pointer;">  Switch to Basic View:) </button>
 
   <!-- IMAGE / LOGO -->
   <img id="logo" src="logo.png">
@@ -146,49 +147,8 @@ function runJS() {
   document.getElementById("jsText").innerText = "This is the JavaScript! 😎";
 }
 
-let basic = false;
-
 function toggleStyle() {
     document.body.classList.toggle("advanced");
-}
-  
-    const boxes = document.querySelectorAll(".box");
-    const button = document.querySelector(".glow-btn");
-
-    if (basic) {
-    document.body.style.backgroundColor = "white";
-    document.body.style.color = "black";
-    
-    boxes.forEach(box => {
-      box.style.background = "none"
-      box.style.border = "1px solid black";
-    });
-  
-    if (button) {
-      button.style.boxShadow = "none";
-    }
-
-    document.querySelector("p[onclick]").innerText = "Switch to Styled view";
- 
-   } else {
-       location.reload();
-  }
-}
-
-let swapped = false;
-
-function swapElements() {
-  let logo = document.getElementById('logo');
-  let btn = document.getElementById('switchBtn');
-
-  if (!swapped) {
-    logo.style.transform = 'translateX(60px)';
-    btn.style.transform = 'translateX(-60px)';
-  } else {
-    logo.style.transform = 'translateX(0)';
-    btn.style.transform = 'translateX(0)';
-  }
-  swapped = !swapped;
 }
 
 </script>
