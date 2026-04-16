@@ -181,11 +181,11 @@ function swapElements() {
   let btn = document.getElementById('switchBtn');
 
   if (!swapped) {
-    logo.style.transform = 'translateY(60px)';
-    btn.style.transform = 'translateY(-60px)';
+    logo.style.transform = 'translateX(60px)';
+    btn.style.transform = 'translateX(-60px)';
   } else {
-    logo.style.transform = 'translateY(0)';
-    btn.style.transform = 'translateY(0)';
+    logo.style.transform = 'translateX(0)';
+    btn.style.transform = 'translateX(0)';
   }
   swapped = !swapped;
 }
